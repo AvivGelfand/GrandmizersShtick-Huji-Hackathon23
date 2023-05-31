@@ -1,0 +1,35 @@
+# Compiled Python files
+*.pyc
+__pycache__/
+
+# Virtual environment
+venv/
+env/
+env.bak/
+*.env
+
+# Development tools
+.vscode/
+.idea/
+
+# Dependency directories
+dist/
+build/
+lib/
+
+# Distribution files
+*.egg-info/
+*.egg
+
+# Logs and databases
+*.log
+*.sqlite3
+
+# Testing files
+htmlcov/
+.coverage
+.tox/
+
+# Editor-specific files
+*.swp
+*~
