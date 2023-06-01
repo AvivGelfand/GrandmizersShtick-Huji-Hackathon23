@@ -9,30 +9,29 @@ load_dotenv()
 openai.api_key = os.getenv("OPENAIKEY")
 
 
-def generate_answer(prompt):
+def generate_answer(prompt: str,max_tokens) -> str:
     """
-    Generates an answer to the given question using the OpenAI API.
+    Generate an answer based on the given prompt using ChatGPT.
 
-    :param question: The question to generate an answer for.
+    :param prompt: The prompt to generate the answer from.
     :return: The generated answer as a string.
     """
     response = openai.Completion.create(
         model="text-davinci-003",
         prompt=prompt,
         temperature=0.9,
-        max_tokens=200,
+        max_tokens=max_tokens,
         top_p=1,
         frequency_penalty=0.1,
         presence_penalty=0.6,
         # stop=[" Human:", " AI:"],
     )
+
     answer = response["choices"][0]["text"]
+    print(response)
     return answer
 
-
 # Example usage
-
-
 # question = "What is the capital of France?"
 # answer = generate_answer(prompt)
 # print(answer)

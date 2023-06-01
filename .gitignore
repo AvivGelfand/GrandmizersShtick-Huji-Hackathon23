@@ -33,3 +33,10 @@ htmlcov/
 # Editor-specific files
 *.swp
 *~
+
+hacaton23/Scripts/*
+
+*.mp3
+pyvenv.cfg
+
+stt-hackton23-ff184d52e37a.json

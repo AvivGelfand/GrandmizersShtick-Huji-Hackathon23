@@ -1,11 +1,9 @@
-from datetime import date
 from bs4 import BeautifulSoup
 import requests
-import lxml
 import re
 
 
-def create_soup(url):
+def create_soup(url:str):
     """
     Creates a BeautifulSoup object from the provided URL.
 
@@ -16,8 +14,26 @@ def create_soup(url):
     soup = BeautifulSoup(response.content, "lxml")  # Get the content of the website
     return soup
 
+def get_today_articles_links(numb_article:int)->list:
+    """
+    Retrieves a list of articles published today on a specific website.
 
-def extract_article_content(url):
+    :return: A list of article contents.
+    """
+    nbc_url = "https://www.nbcnews.com/"  # Website URL
+    soup = create_soup(nbc_url)  # Get the content of the website
+
+    # Create a list of article links containing articles from today on NBC
+    links = []
+    # Choose story headlines only
+    for i,news in enumerate(soup.findAll("h3", {"class": re.compile(r"styles_headline__5qvTg f5(.*)")})):
+        links.append(news.a["href"])  # Append link of article to list of links
+        if i==numb_article-1:
+            break
+
+    return links
+
+def extract_article_content(url:str)->str:
     """
     Extracts the content of an article from the provided URL.
 
@@ -29,39 +45,3 @@ def extract_article_content(url):
     for news in soup.findAll("div", {"class": "article-body__content"}):
         article += news.text.strip()  # Extract the article into a string
     return article
-
-
-def get_today_articles():
-    """
-    Retrieves a list of articles published today on a specific website.
-
-    :return: A list of article contents.
-    """
-    nbc_us_url = "https://www.nbcnews.com/us-news/"
-    nbc_url = "https://www.nbcnews.com/"  # Website URL
-    soup = create_soup(nbc_url)  # Get the content of the website
-
-    # Create a list of article links containing articles from today on NBC
-    links = []
-    for news in soup.findAll(
-        "h3", {"class": re.compile(r"styles_headline__5qvTg f5(.*)")}
-    ):  # Choose story headlines only
-        links.append(news.a["href"])  # Append link of article to list of links
-        break
-
-    # Create a list of article contents
-    article_contents = []  # A list that contains all the contents
-    for (
-        link
-    ) in (
-        links
-    ):  # Iterate through the links of the different articles to extract their contents separately
-        article = extract_article_content(link)
-        article_contents.append(article)  # Append the article to the articles list
-        break
-    return article_contents
-
-
-# Example usage
-# output = get_today_articles()
-# print(output[0])
