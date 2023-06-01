@@ -2,46 +2,35 @@ import os
 import openai
 from dotenv import load_dotenv
 
-# pip freeze > requirements.txt
-
-# load the .env file
+# Load the environment variables from the .env file
 load_dotenv()
 
-openai.api_key = os.getenv("OPENAI_API_KEY")
+# Set the OpenAI API key from the environment variables
+openai.api_key = os.getenv("OPENAIKEY")
 
 
-def generate_answer(question, context):
+def generate_answer(question):
+    """
+    Generates an answer to the given question using the OpenAI API.
+
+    :param question: The question to generate an answer for.
+    :return: The generated answer as a string.
+    """
     response = openai.Completion.create(
         model="text-davinci-003",
-        prompt="The following is a conversation with an AI assistant. The assistant is helpful, creative, clever, and very friendly.\n\nHuman: Hello, who are you?\nAI: I am an AI created by OpenAI. How can I help you today?\nHuman: I'd like to cancel my subscription.\nAI:",
+        prompt=question,
         temperature=0.9,
         max_tokens=150,
         top_p=1,
         frequency_penalty=0.0,
         presence_penalty=0.6,
-        stop=[" Human:", " AI:"],
+        # stop=[" Human:", " AI:"],
     )
     answer = response["choices"][0]["text"]
     return answer
 
 
-response = openai.Completion.create(
-    model="text-davinci-003",
-    prompt="The following is a conversation with an AI assistant. The assistant is helpful, creative, clever, and very friendly.\n\nHuman: Hello, who are you?\nAI: I am an AI created by OpenAI. How can I help you today?\nHuman: I'd like to cancel my subscription.\nAI:",
-    temperature=0.9,
-    max_tokens=150,
-    top_p=1,
-    frequency_penalty=0.0,
-    presence_penalty=0.6,
-    stop=[" Human:", " AI:"],
-)
-print("response: \n", response)
-
-# extract the answer from the response
-answer = response["choices"][0]["text"]
-print("answer: \n", answer)
-
-
-generate_answer(
-    "Write a conversation between to people about the weather. It needs to be good for audio generation.",
-)
+# Example usage
+# question = "What is the capital of France?"
+# answer = generate_answer(question)
+# print(answer)
