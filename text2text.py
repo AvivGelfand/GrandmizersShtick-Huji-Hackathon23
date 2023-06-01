@@ -9,7 +9,7 @@ load_dotenv()
 openai.api_key = os.getenv("OPENAIKEY")
 
 
-def generate_answer(question):
+def generate_answer(prompt):
     """
     Generates an answer to the given question using the OpenAI API.
 
@@ -18,11 +18,11 @@ def generate_answer(question):
     """
     response = openai.Completion.create(
         model="text-davinci-003",
-        prompt=question,
+        prompt=prompt,
         temperature=0.9,
-        max_tokens=150,
+        max_tokens=200,
         top_p=1,
-        frequency_penalty=0.0,
+        frequency_penalty=0.1,
         presence_penalty=0.6,
         # stop=[" Human:", " AI:"],
     )
@@ -31,6 +31,8 @@ def generate_answer(question):
 
 
 # Example usage
+
+
 # question = "What is the capital of France?"
-# answer = generate_answer(question)
+# answer = generate_answer(prompt)
 # print(answer)
