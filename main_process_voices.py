@@ -71,7 +71,7 @@ def real_process(NUMB_OF_ARTICLE, CHAR_OF_ARTICLE,max_tokens):
     return ORDER_AUDIO
 
 
-def main(CHAR_OF_ARTICLE=200, NUMB_OF_ARTICLE=1,max_tokens=400, demo=True):
+def main_process_voices(CHAR_OF_ARTICLE=200, NUMB_OF_ARTICLE=1,max_tokens=400, demo=True):
     """
       The main function for processing articles.
 
@@ -93,5 +93,5 @@ def main(CHAR_OF_ARTICLE=200, NUMB_OF_ARTICLE=1,max_tokens=400, demo=True):
     print("finish")
 
 
-# main(CHAR_OF_ARTICLE=200,max_tokens=3500,demo=False)
-main(demo=True)
+# main_process_voices(CHAR_OF_ARTICLE=200,max_tokens=3500,demo=False)
+main_process_voices(demo=True)
