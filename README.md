@@ -8,6 +8,10 @@
   <div style="flex: 1; text-align: right;">
     <!-- Image content here -->
     <img src="images/De_Grandmizer_Shtick_photo.jpg" alt="De Grandmizer Shtick" width="250">
+    <img src="images/De_Grandmizer_Shtick_photo_2.jpg" alt="De Grandmizer Shtick" width="250">
+        <img src="images/De_Grandmizer_Shtick_photo_3.jpg" alt="De Grandmizer Shtick" width="250">
+
+
   </div>
 </div>
 
