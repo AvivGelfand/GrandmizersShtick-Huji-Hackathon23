@@ -1,9 +1,9 @@
 
-<p align="center">
-  <img src="images/De_Grandmizer_Shtick_photo.jpg" alt="De Grandmizer Shtick" width="300">
-</p>
-
 # De Grandmizer Shtick
+
+<p align="center">
+  <img src="images/De_Grandmizer_Shtick_photo.jpg" alt="De Grandmizer Shtick" width="425">
+</p>
 
 De Grandmizer Shtick is a Python application that generates conversations using ChatGPT and converts them into audio files using the Google Cloud Text-to-Speech API. It provides a graphical user interface (GUI) for easy interaction. The project is designed to help create the illusion of an occupied home do intimidate burlaries and creaeted during HUJI hacaton 2023.
 
