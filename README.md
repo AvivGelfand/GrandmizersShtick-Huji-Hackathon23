@@ -1,6 +1,6 @@
-# Text-to-Speech Article Reader
+# De Grandmizer Shtick
 
-This project is a Python application that converts text articles into audio files using the Google Cloud Text-to-Speech API. It provides a graphical user interface (GUI) for easy interaction.
+De Grandmizer Shtick is a Python application that generates conversations using ChatGPT and converts them into audio files using the Google Cloud Text-to-Speech API. It provides a graphical user interface (GUI) for easy interaction. The project is designed to help create the illusion of an occupied home do intimidate burlaries and creaeted during HUJI hacaton 2023.
 
 ## Features
 
@@ -11,7 +11,7 @@ This project is a Python application that converts text articles into audio file
 
 ## Installation
 
-1. Clone the repository: `git clone https://github.com/your-username/text-to-speech-article-reader.git`
+1. Clone the repository: `git clone https://github.com/AvivGelfand/Hackathon23/edit/master/`
 2. Install the required dependencies: `pip install -r requirements.txt`
 3. Set the Google Cloud API key in the environment variable `GOOGLE_APPLICATION_CREDENTIALS`.
 4. Modify the script parameters in `main_process_voices.py` as needed.
@@ -20,31 +20,10 @@ This project is a Python application that converts text articles into audio file
 ## Usage
 
 1. Open the graphical user interface by running `main_and_gui.py`.
-2. Click the "I'm leaving home" button to start processing the articles and generating audio files.
-3. Click the "Break Run" button to stop the execution and turn off the sound.
+2. Click the "I'm leaving home, turn on sound" button to start processing the articles and generating audio files.
+3. Click the "I'm back, turn off sound" button to stop the execution and turn off the sound.
 
 **Note:** The application is currently set to run in demo mode, playing pre-recorded audio files. Modify the parameters in the `main_process_voices` function and set `demo` to `False` for real article processing.
 
-## Contributing
 
-Contributions are welcome! Please create an issue or submit a pull request for any improvements or bug fixes.
-
-## License
-
-This project is licensed under the MIT License. See the LICENSE file for details.
-
-## Acknowledgments
-
-The application uses the following libraries:
-
-- `tkinter` for creating the GUI.
-- `ttkthemes` for applying themed styles to the GUI.
-- `subprocess` for executing shell commands.
-- `time` for adding delays in the script.
-- Custom modules for web scraping, generating answers, extracting dialogues, and text-to-speech conversion.
-
-## Disclaimer
-
-This application is provided as-is without any warranty. Use it at your own risk. Be aware of the terms and conditions of the websites you scrape articles from and comply with them.
-
-Please note that the usage of the Google Cloud Text-to-Speech API may incur charges. Check the pricing details on the Google Cloud website before using the API.
+Please note that the usage of the Google Cloud Text-to-Speech and OpenAi API   may incur charges. Check the pricing details before using the API.
