@@ -5,6 +5,7 @@ from helping_func import extract_dialogues
 from text2speech import convert_text_audio,play_sounds_in_sequence
 import datetime
 import os
+import time
 
 # the main prompt for the rest of the script
 PROMPT = """create conversation between 2 people about the following article : {}
@@ -42,9 +43,10 @@ def real_process(NUMB_OF_ARTICLE, CHAR_OF_ARTICLE,max_tokens):
     :return: A list containing the order of audio files generated.
     """
     ORDER_AUDIO = []
+    art_ind = 0
 
     # Read some data about the headlines from CBS
-    article_links = get_today_articles_links(NUMB_OF_ARTICLE)
+    article_links = get_today_articles_links(2)#(NUMB_OF_ARTICLE)
     for art_ind, article_l in enumerate(article_links):
         TEMP_ORDER_AUDIO = []
 
@@ -59,9 +61,9 @@ def real_process(NUMB_OF_ARTICLE, CHAR_OF_ARTICLE,max_tokens):
         person_a, person_b = extract_dialogues(generative_ans) #txt)
 
         # Convert the dialogues into audio files
-        art_ind=0
-        TEMP_ORDER_AUDIO = convert_text_audio(art_ind, person_a, person_b)
 
+        TEMP_ORDER_AUDIO = convert_text_audio(art_ind, person_a, person_b)
+        art_ind+=1
         # Add the TEMP_ORDER_AUDIO to the ORDER_AUDIO list
         ORDER_AUDIO.append(TEMP_ORDER_AUDIO)
 
@@ -82,6 +84,7 @@ def main_process_voices(CHAR_OF_ARTICLE=200, NUMB_OF_ARTICLE=1,max_tokens=400, d
       :return: None
       """
     if demo:
+        time.sleep(3)
         print("start demo")
         demo_process()
         "finish demo"
@@ -93,5 +96,5 @@ def main_process_voices(CHAR_OF_ARTICLE=200, NUMB_OF_ARTICLE=1,max_tokens=400, d
     print("finish")
 
 
-# main_process_voices(CHAR_OF_ARTICLE=200,max_tokens=3500,demo=False)
+# main_process_voices(CHAR_OF_ARTICLE=200,NUMB_OF_ARTICLE=2,max_tokens=600,demo=False)
 main_process_voices(demo=True)
