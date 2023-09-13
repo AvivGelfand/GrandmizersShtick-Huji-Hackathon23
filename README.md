@@ -2,7 +2,7 @@
   <div style="flex: 1;align-items: center;">
     <!-- Text content here -->
     <h1>De Grandmizer Shtick</h1>
-    <p>De Grandmizer Shtick is a Python application that generates conversations using GPT and converts them into audio files using the Google Cloud Text-to-Speech API. It provides a graphical user interface (GUI) for easy interaction. The project is designed to help create the illusion of an occupied home to intimidate burglaries and was created during HUJI Genrative AI Hackathon 2023.</p>
+    <p>De Grandmizer Shtick is a Python application that generates conversations using GPT and converts them into audio files using the Google Cloud Text-to-Speech API. It provides a graphical user interface (GUI) for easy interaction. The project is designed to help create the illusion of an occupied home to intimidate burglaries and was created during the HUJI Generative AI Hackathon 2023.</p>
     <!-- Additional text content -->
   </div>
   <div style="flex: 1; text-align: right;">
